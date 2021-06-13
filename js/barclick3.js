@@ -113,7 +113,8 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
   vrcur.setAttribute("scale", "2 2 2;");
   vrcur.setAttribute("animation__mouseenter", "property:scale; from:1 1 1; to:2 2 2; startEvents:mouseenter; pauseEvents:mouseleave; dir:reverse; dur:1000; loop:1")
   vrcur.setAttribute("visible", "true")
-
+  console.log("enter");
+  console.log(vrcur);
   if (id_skybox === "#point3") {
     document.getElementById('camrig').setAttribute('position','-28 8 80');
     document.getElementById('tutor_nav').setAttribute('visible', true);
@@ -123,6 +124,7 @@ document.querySelector('a-scene').addEventListener('exit-vr', function () {
   vrcur.setAttribute("scale", "0 0 0;");
   vrcur.setAttribute("animation__mouseenter", "");
   vrcur.setAttribute("visible", "false")
-
+  console.log("exit");
+  console.log(vrcur);
   document.getElementById('tutor_nav').setAttribute('visible', false);
 });
