@@ -2,7 +2,7 @@ var menu = document.getElementById("menu");
 var vrcam = document.querySelector("#vrcam");
 var vrcur = document.querySelector("#vrcur");
 var zoomcam = document.querySelector("#zoomcam");
-id_skybox = document.getElementById('skybox').getAttribute('src');
+var id_skybox = document.getElementById('skybox').getAttribute('src');
 menu.addEventListener("click", function() {
   menu.classList.toggle("change");
   var x = document.getElementById("myLinks");
@@ -109,22 +109,30 @@ document.getElementById('btn_mulaiTour').addEventListener('click', function() {
 
 var vrcur = document.getElementById('vrcur');
 
+AFRAME.registerComponent('vrcurr', {
+  update: async function () {
+    var el = this.el;        
+
 document.querySelector('a-scene').addEventListener('enter-vr', function () {
-  vrcur.setAttribute("scale", "2 2 2;");
-  vrcur.setAttribute("animation__mouseenter", "property:scale; from:1 1 1; to:2 2 2; startEvents:mouseenter; pauseEvents:mouseleave; dir:reverse; dur:1000; loop:1")
-  vrcur.setAttribute("visible", "true")
+  el.setAttribute("scale", "2 2 2;");
+  el.setAttribute("cursor", "fuse:true; fuseTimeout:1000;");
+  el.setAttribute("animation__mouseenter", "property:scale; from:1 1 1; to:2 2 2; startEvents:mouseenter; pauseEvents:mouseleave; dir:reverse; dur:1000; loop:1")
+  el.setAttribute("visible", "true")
   console.log("enter");
-  console.log(vrcur);
+  console.log(el);
   if (id_skybox === "#point3") {
     document.getElementById('camrig').setAttribute('position','-28 8 80');
     document.getElementById('tutor_nav').setAttribute('visible', true);
   }
 });
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
-  vrcur.setAttribute("scale", "0 0 0;");
-  vrcur.setAttribute("animation__mouseenter", "");
-  vrcur.setAttribute("visible", "false")
+  el.setAttribute("scale", "0 0 0;");
+  el.setAttribute("cursor", "fuse:false; fuseTimeout:1000;");
+  el.setAttribute("animation__mouseenter", "");
+  el.setAttribute("visible", "false")
   console.log("exit");
-  console.log(vrcur);
+  console.log(el);
   document.getElementById('tutor_nav').setAttribute('visible', false);
+});
+  }
 });
