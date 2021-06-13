@@ -107,22 +107,21 @@ document.getElementById('btn_mulaiTour').addEventListener('click', function() {
   document.getElementById('camrig').setAttribute('position','-28 8 48');
 })
 
+var vrcur = document.getElementById('vrcur');
 
 document.querySelector('a-scene').addEventListener('enter-vr', function () {
-  let vrcur = document.createElement('a-entity');
-  setAttributes(vrcur, {"id":"vrcur", "cursor":"fuse:true; fuseTimeout:1000",
-                "geometry":"primitive:ring; radiusInner:0.01; radiusOuter:0.02",
-                "position":"0 0 -1.4",
-                "material":"shader:flat; color:#84ff68",
-                "animation__mouseenter":"property:scale; from:1 1 1; to:2 2 2; startEvents:mouseenter; pauseEvents:mouseleave; dir:reverse; dur:1000; loop:1"
-  })
-  zoomcam.appendChild(vrcur);
+  vrcur.setAttribute("scale", "1 1 1;");
+  vrcur.setAttribute("animation__mouseenter", "property:scale; from:1 1 1; to:2 2 2; startEvents:mouseenter; pauseEvents:mouseleave; dir:reverse; dur:1000; loop:1")
+  vrcur.setAttribute("cursor", "fuse:true; fuseTimeout:1000")
+
   if (id_skybox === "#point3") {
     document.getElementById('camrig').setAttribute('position','-28 8 80');
     document.getElementById('tutor_nav').setAttribute('visible', true);
   }
 });
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
-  zoomcam.innerHTML="";
+  vrcur.setAttribute("scale", "0 0 0;");
+  vrcur.setAttribute("animation__mouseenter", "");
+  vrcur.setAttribute("cursor", "fuse:false; fuseTimeout:1000")
   document.getElementById('tutor_nav').setAttribute('visible', false);
 });

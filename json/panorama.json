@@ -12,7 +12,7 @@
                 {
                     "id": "map_1",
                     "spot": "linkto:#point1;spotgroup:group-point1",
-                    "position": "-75 0 50"
+                    "position": "-81.629 0 50"
                 },                
                 {
                     "id": "map_2_1",
@@ -22,13 +22,13 @@
                 {
                     "id": "map_2_2",
                     "spot": "linkto:#point2_2;spotgroup:group-point2_2",
-                    "position": "45 0 50"
+                    "position": "35.291 0 50"
                 }
             ],
             "photoInfo":[
                 {
                     "id": "info1",
-                    "position": "-40 8 64.395",
+                    "position": "-19.555 3.000 68.434",
                     "rotation": "",
                     "textId": "1",
                     "textRotation":"0 180 0",
@@ -36,7 +36,7 @@
                 },
                 {
                     "id": "info2",
-                    "position": "-20 8 36",
+                    "position": "-44.712 8 29.384",
                     "rotation": "",
                     "textId": "2",
                     "textRotation":"0 180 0",
