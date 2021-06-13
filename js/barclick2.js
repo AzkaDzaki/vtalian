@@ -112,9 +112,9 @@ AFRAME.registerComponent('vrcurr',{
 
   },
   update: function (){
-    var vrcur = document.createElement('a-entity');
 
 document.querySelector('a-scene').addEventListener('enter-vr', function () {
+  let vrcur = document.createElement('a-entity');
   setAttributes(vrcur, {"id":"vrcur", "cursor":"fuse:true; fuseTimeout:1000",
                 "geometry":"primitive:ring; radiusInner:0.01; radiusOuter:0.02",
                 "position":"0 0 -1.4",
@@ -130,7 +130,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
 });
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
   document.getElementById("vrcur").remove();
-  console.log(vrcur);
+  console.log(document.getElementById("vrcur"));
   document.getElementById('tutor_nav').setAttribute('visible', false);
 });
   }
