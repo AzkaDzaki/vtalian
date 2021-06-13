@@ -112,7 +112,6 @@ var vrcur = document.getElementById('vrcur');
 document.querySelector('a-scene').addEventListener('enter-vr', function () {
   vrcur.setAttribute("scale", "2 2 2;");
   vrcur.setAttribute("animation__mouseenter", "property:scale; from:1 1 1; to:2 2 2; startEvents:mouseenter; pauseEvents:mouseleave; dir:reverse; dur:1000; loop:1")
-  vrcur.setAttribute("cursor", "fuse:true; fuseTimeout:1000")
   vrcur.setAttribute("visible", "true")
 
   if (id_skybox === "#point3") {
@@ -123,7 +122,6 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
   vrcur.setAttribute("scale", "0 0 0;");
   vrcur.setAttribute("animation__mouseenter", "");
-  vrcur.setAttribute("cursor", "fuse:false; fuseTimeout:1000")
   vrcur.setAttribute("visible", "false")
 
   document.getElementById('tutor_nav').setAttribute('visible', false);
