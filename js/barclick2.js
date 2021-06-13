@@ -112,8 +112,9 @@ AFRAME.registerComponent('vrcurr',{
 
   },
   update: function (){
+    var vrcur = document.createElement('a-entity');
+
 document.querySelector('a-scene').addEventListener('enter-vr', function () {
-  let vrcur = document.createElement('a-entity');
   setAttributes(vrcur, {"id":"vrcur", "cursor":"fuse:true; fuseTimeout:1000",
                 "geometry":"primitive:ring; radiusInner:0.01; radiusOuter:0.02",
                 "position":"0 0 -1.4",
@@ -121,6 +122,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
                 "animation__mouseenter":"property:scale; from:1 1 1; to:2 2 2; startEvents:mouseenter; pauseEvents:mouseleave; dir:reverse; dur:1000; loop:1"
   })
   zoomcam.appendChild(vrcur);
+  console.log(vrcur);
   if (id_skybox === "#point3") {
     document.getElementById('camrig').setAttribute('position','-28 8 80');
     document.getElementById('tutor_nav').setAttribute('visible', true);
@@ -128,6 +130,7 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
 });
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
   document.getElementById("vrcur").remove();
+  console.log(vrcur);
   document.getElementById('tutor_nav').setAttribute('visible', false);
 });
   }
