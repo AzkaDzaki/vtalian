@@ -122,11 +122,13 @@ document.querySelector('a-scene').addEventListener('enter-vr', function () {
     document.getElementById('camrig').setAttribute('position','-28 8 80');
     document.getElementById('tutor_nav').setAttribute('visible', true);
   }
+  console.log(document.getElementById('camrig'))
 });
 document.querySelector('a-scene').addEventListener('exit-vr', function () {
-  el.setAttribute("cursor", "fuse:true");
-  el.setAttribute("visible", "true");
+  el.setAttribute("cursor", "fuse:false");
+  el.setAttribute("visible", "false");
   console.log(el);
+  console.log(document.getElementById('camrig'))
   document.getElementById('tutor_nav').setAttribute('visible', false);
 });
   }
