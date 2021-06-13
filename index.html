@@ -180,7 +180,13 @@
         <!-- CAMERA & CURSOR -->
         <a-entity id="camrig" movement-controls="speed: 0.7; controls: keyboard, checkpoint"
             checkpoint-controls="mode: animate; animateSpeed: 10" kinematic-body position="-28 8 40">
-            <a-entity vrcurr camera id="zoomcam" look-controls>
+            <a-entity camera id="zoomcam" look-controls>
+                <a-entity vrcurr id="vrcur" cursor="fuse:false"
+                    geometry="primitive:ring; radiusInner:0.01; radiusOuter:0.02" position="0 0 -1.4" scale="0 0 0"
+                    material="shader:flat; color:#84ff68"
+                    animation__mouseenter="property:scale; from:1 1 1; to:2 2 2; startEvents:mouseenter; pauseEvents:mouseleave; dir:reverse; dur:1000; loop:1"
+                    visible="false">
+                </a-entity>
             </a-entity>
         </a-entity>
         <a-entity id="cursor" cursor="ray-origin: mouse" raycaster="objects: [geometry]"></a-entity>
