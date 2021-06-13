@@ -110,7 +110,7 @@ document.getElementById('btn_mulaiTour').addEventListener('click', function() {
 var vrcur = document.getElementById('vrcur');
 
 AFRAME.registerComponent('vrcurr', {
-  update: async function () {
+  init: function () {
     var el = this.el;        
 
 document.querySelector('a-scene').addEventListener('enter-vr', function () {
