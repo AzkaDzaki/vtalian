@@ -2,7 +2,7 @@ AFRAME.registerComponent('wall-audio', {
     schema: {
 
     },
-    init: async function () {
+    update: function () {
         var el = this.el; 
         console.log(el);
         el.addEventListener('click', function (e) {
