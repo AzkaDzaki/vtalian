@@ -171,7 +171,7 @@ AFRAME.registerComponent('hotspots',{
     let x = await fetchMap('https://raw.githubusercontent.com/virtualtouralian/vtalian_file/main/json/test.json');
     x.entity.forEach(element => {
         const test = document.createElement('a-entity');
-        setAttributes(test, {"id": element.id, "mixin": element.mixin, "geometry": element.geometry, "position": element.position, "static-body":""} );
+        setAttributes(test, {"id": element.id, "mixin": element.mixin, "geometry": element.geometry, "position": element.position} );
         document.getElementById("entity_group").appendChild(test);
     });    
     
@@ -190,7 +190,7 @@ AFRAME.registerComponent('hotspots',{
     let flr = await fetchMap('https://raw.githubusercontent.com/virtualtouralian/vtalian_file/main/json/floor.json');    
     flr.floor.forEach(element => {
         const test = document.createElement('a-plane');
-        setAttributes(test, {"id":element.id, "position": element.position, "rotation": "-90 0 0", "scale" : "8 8 1", "checkpoint": "offset: 0 8 1", "visible":"true", "static-body":""} );
+        setAttributes(test, {"id":element.id, "position": element.position, "rotation": "-90 0 0", "scale" : "8 8 1", "checkpoint": "offset: 0 8 1", "visible":"true"} );
         document.getElementById("step").appendChild(test);
     });
     let wall_object = await fetchMap('https://raw.githubusercontent.com/virtualtouralian/vtalian_file/main/json/wall-object.json');
