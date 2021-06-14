@@ -274,12 +274,15 @@ AFRAME.registerComponent('hotspots',{
          document.getElementById('splash').style.display = 'none';   
       });
     });
-//     let wall_audio = await fetchMap("https://raw.githubusercontent.com/virtualtouralian/vtalian_file/main/json/wall-audio.json");
-// wall_audio.wall_audio.forEach(element => {
-//   const audio = document.createElement('a-box');
-//   setAttributes(audio, {"id": element.id, "rotation": element.rotation, "position": element.position, "sound": element.sound+"volume:5", "class": "audio-entity pause", "wall-audio":"", "geometry":"height: 1.000; width: 0.100", "material":"src: https://raw.githubusercontent.com/virtualtouralian/vtalian_file/main/img/topcoat_audio.png;shader:flat; color: #FFF; transparent: true;", "crossorigin":"anonymous", "animation__scale":"property: scale; to: 1.1 1.1 1.1; dur: 200; startEvents: mouseenter", "animation__scale_reverse":"property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"})
-//   document.getElementById("wall_audio").appendChild(audio);
-// });
+    let wall_audio = await fetchMap("https://raw.githubusercontent.com/virtualtouralian/vtalian_file/main/json/wall-audio.json");
+      wall_audio.wall_audio.forEach(element => {
+      const audio_asset = document.createElement('audio');
+      setAttributes(audio_asset, {"id": element.id, "src":element.sound, "preload":"auto", "crossorigin":"anonymous"});
+      document.getElementById("wall_audio_asset").appendChild(audio_asset);
+      const audio = document.createElement('a-entity');
+      setAttributes(audio, {"id": "#"+element.id, "rotation": element.rotation, "position": element.position, "sound": `src:#${element.id};volume:5`, "class": "audio-entity pause", "wall-audio":"", "geometry":"height: 1.000; width: 0.100", "material":"src: https://raw.githubusercontent.com/virtualtouralian/vtalian_file/main/img/topcoat_audio.png;shader:flat; color: #FFF; transparent: true;", "animation__scale":"property: scale; to: 1.1 1.1 1.1; dur: 200; startEvents: mouseenter", "animation__scale_reverse":"property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"})
+      document.getElementById("wall_audio").appendChild(audio);
+    });
   }
     
     //CALL GET API FUNCTION
